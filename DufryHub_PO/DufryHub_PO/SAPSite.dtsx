@@ -1,0 +1,3556 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/21/2020 8:04:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CHSRV255"
+  DTS:CreatorName="DUFRY\t-vlamun"
+  DTS:DTSID="{1EB1A08E-E910-4E3F-8034-4E4E56A39662}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="2055"
+  DTS:ObjectName="SAPSite"
+  DTS:PackageType="5"
+  DTS:VersionBuild="241"
+  DTS:VersionGUID="{CB4EE50F-53BD-4B69-9800-8F7973EC5894}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[chsql023p]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FD181DA6-673E-4B30-A9AC-316009FB62A1}"
+      DTS:ObjectName="chsql023p">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=chsql023p;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4712B4A8-E52D-418A-9A26-283A13D63180}"
+      DTS:ObjectName="CHSQL281.d_dipdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=CHSQL281;Initial Catalog=d_dipdb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{E0CC4A25-6542-4A8B-B369-8A02AEC082CB}"
+      DTS:ObjectName="ParentAuditId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A3EB067F-CA66-48BA-B64A-DC8DAC2AA8E5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditDeleteRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D70AB5DA-23B7-4FF7-98AE-491F6B5AE9D7}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditDetails">
+      <DTS:VariableValue
+        DTS:DataType="8">SAPSite</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{54228869-F3E4-4C13-9433-A891C7B35039}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditDetailsLoop">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2B030D69-FF01-4684-8002-796DA3EAC096}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditErrorRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{575F1131-394A-4517-BC8F-E629671B3799}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditExtractRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7BBE61B9-A677-484B-82F6-850A8CD3B1BF}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditId">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{61635A0E-E95B-4597-8854-5FF7EF5C3EF5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditIdLoop">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{834C1BE7-FDB2-449C-A5E2-83FFA84682B8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditInsertRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CC29B9D7-FCE1-4697-92F2-A0C492F82087}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditTableFinalRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{367C8038-D00F-40AD-B976-6004A580A72B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditTableInitialRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4C6BED5E-C78C-4FAE-B32C-2CD589B435BD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">SAPSite</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BB11C67D-D60F-4D9A-86B9-498551D625A4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditUpdateRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EFE2DACF-06A9-4B2D-A2D6-86C2C4FBB9B8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LineageDataOperationIdInsert">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{312FF714-4593-47C0-8758-B5BCAB55D599}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LineageDataOperationIdUpdateNewValue">
+      <DTS:VariableValue
+        DTS:DataType="3">4</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FD0AC240-D450-42D0-A684-03347D0749E9}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceSystem">
+      <DTS:VariableValue
+        DTS:DataType="8">SAP</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{362F7F7A-195A-4479-91CF-E3470705E3E5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SystemId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{20F80102-AB00-4D2C-ABAF-678FFE0F8356}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TargetSystem">
+      <DTS:VariableValue
+        DTS:DataType="8">DCIS</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load SAPSite$changes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B96B40B6-27D1-4BA4-9098-8A166746023B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load SAPSite$changes"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load SAPSite$changes\CNT AuditCountExistingRows"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNT AuditCountExistingRows">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditTableInitialRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\CNT AuditCountExistingRows.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\CNT AuditCountExistingRows.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\CNT AuditCountExistingRows.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\CNT AuditCountInsertRecords"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNT AuditCountInsertRecords">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditInsertRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\CNT AuditCountInsertRecords.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\CNT AuditCountInsertRecords.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\CNT AuditCountInsertRecords.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\CNT AuditCountUpdateRecords"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNT AuditCountUpdateRecords">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditUpdateRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\CNT AuditCountUpdateRecords.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\CNT AuditCountUpdateRecords.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\CNT AuditCountUpdateRecords.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input].Columns[exist_SAPSiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="exist_SAPSiteCode"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_SAPSiteCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input].Columns[HashValue]"
+                      cachedDataType="i8"
+                      cachedName="HashValue"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValue]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input].Columns[exist_HashValue]"
+                      cachedDataType="i8"
+                      cachedName="exist_HashValue"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_HashValue]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[new record]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="new record"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_SAPSiteCode]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(exist_SAPSiteCode)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[Update]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Update"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[REPLACENULL](#{Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValue]},0) != [REPLACENULL](#{Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_HashValue]},0)</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">REPLACENULL(HashValue,0) != REPLACENULL(exist_HashValue,0)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCN  ConvertHashValueToBigINT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Inputs[Data Conversion Input].Columns[HashValueBytes]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="HashValueBytes"
+                      lineageId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]"
+                      name="HashValue"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCN ConvertHashValueToBigINT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input].Columns[HashValueBytes]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="HashValueBytes"
+                      lineageId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]"
+                      name="HashValue"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER LLA Columns for INSERT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[DataOperationId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[DataOperationId]"
+                      name="DataOperationId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::LineageDataOperationIdInsert]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::LineageDataOperationIdInsert]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[InsertLineageId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[InsertLineageId]"
+                      name="InsertLineageId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::AuditIdLoop]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::AuditIdLoop]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER LLA Columns for UPDATE"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[DataOperationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[DataOperationID]"
+                      name="DataOperationID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::LineageDataOperationIdUpdateNewValue]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::LineageDataOperationIdUpdateNewValue]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[UpdateLineageID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[UpdateLineageID]"
+                      name="UpdateLineageID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::AuditIdLoop]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::AuditIdLoop]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="https://github.com/keif888/SSISMHash/"
+              description="Creates Multiple Hash's from selected input columns."
+              name="HSH  CalculateHashValueBytes"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Select the number of threads to use"
+                  name="MultipleThreads"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+MultipleThread">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Select True to force Nulls and Empty Strings to be detected in Hash, False for earlier version compatability."
+                  name="SafeNullHandling"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+SafeNullHandling">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Select True to enable hashing of Milliseconds, False for earlier version compatability."
+                  name="IncludeMillsecond"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+MillisecondHandling">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">MultipleHash</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Inputs[Input]"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Inputs[Input].Columns[SAPSiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SAPSiteCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[SAPSiteCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput]"
+                  description="Hashed rows are directed to this output."
+                  name="HashedOutput"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]"
+                      name="HashValueBytes">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Select the Hash Type that will be used for this output column."
+                          name="HashType"
+                          typeConverter="Martin.SQLServer.Dts.MultipleHash+HashTypeEnumerator, MultipleHash2016, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">10</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Enter the Lineage ID's that will be used to calculate the hash for this output column."
+                          name="InputColumnLineageIDs">#{Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[SAPSiteCode]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Stores the type of the output column"
+                          name="HashOutputType"
+                          typeConverter="Martin.SQLServer.Dts.MultipleHash+OutputTypeEnumerator, MultipleHash2016, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="https://github.com/keif888/SSISMHash/"
+              description="Creates Multiple Hash's from selected input columns."
+              name="HSH CalculateHashValueBytes"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Select the number of threads to use"
+                  name="MultipleThreads"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+MultipleThread">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Select True to force Nulls and Empty Strings to be detected in Hash, False for earlier version compatability."
+                  name="SafeNullHandling"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+SafeNullHandling">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Select True to enable hashing of Milliseconds, False for earlier version compatability."
+                  name="IncludeMillsecond"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+MillisecondHandling">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">MultipleHash</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Inputs[Input]"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Inputs[Input].Columns[SAPSiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SAPSiteCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[SAPSiteCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput]"
+                  description="Hashed rows are directed to this output."
+                  name="HashedOutput"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]"
+                      name="HashValueBytes">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Select the Hash Type that will be used for this output column."
+                          name="HashType"
+                          typeConverter="Martin.SQLServer.Dts.MultipleHash+HashTypeEnumerator, MultipleHash2016, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">10</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Enter the Lineage ID's that will be used to calculate the hash for this output column."
+                          name="InputColumnLineageIDs">#{Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[SAPSiteCode]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Stores the type of the output column"
+                          name="HashOutputType"
+                          typeConverter="Martin.SQLServer.Dts.MultipleHash+OutputTypeEnumerator, MultipleHash2016, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\INSERT"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="INSERT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SAPSite$changes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load SAPSite$changes\INSERT.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].Columns[SAPSiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SAPSiteCode"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteCode]"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[SAPSiteCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].Columns[DataOperationId]"
+                      cachedDataType="i4"
+                      cachedName="DataOperationId"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[DataOperationID]"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[DataOperationId]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].Columns[InsertLineageId]"
+                      cachedDataType="i4"
+                      cachedName="InsertLineageId"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[InsertLineageID]"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[InsertLineageId]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].Columns[SAPSiteDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SAPSiteDescription"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteDescription]"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[SAPSiteDescription]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].Columns[CompanyCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CompanyCode"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[CompanyCode]"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[CompanyCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SAPSiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[DataOperationID]"
+                      dataType="ui1"
+                      name="DataOperationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[InsertLineageID]"
+                      dataType="i4"
+                      name="InsertLineageID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[UpdateLneageID]"
+                      dataType="i4"
+                      name="UpdateLneageID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SAPSiteDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input].ExternalColumns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CompanyCode" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\INSERT.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[SAPSiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SAPSiteCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[SAPSiteCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[HashValue]"
+                      cachedDataType="i8"
+                      cachedName="HashValue"
+                      lineageId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[SAPSiteDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SAPSiteDescription"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[CompanyCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CompanyCode"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[CompanyCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[HashValueBytes]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="HashValueBytes"
+                      lineageId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Right Input].Columns[SAPSiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SAPSiteCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[SAPSiteCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Right Input].Columns[HashValue]"
+                      cachedDataType="i8"
+                      cachedName="HashValue"
+                      lineageId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[SAPSiteCode]"
+                      name="SAPSiteCode"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[SAPSiteCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValue]"
+                      dataType="i8"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValue]"
+                      name="HashValue">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[HashValue]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_SAPSiteCode]"
+                      name="exist_SAPSiteCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Right Input].Columns[SAPSiteCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_HashValue]"
+                      dataType="i8"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_HashValue]"
+                      name="exist_HashValue">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Right Input].Columns[HashValue]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[SAPSiteDescription]"
+                      name="SAPSiteDescription">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[SAPSiteDescription]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[CompanyCode]"
+                      name="CompanyCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[CompanyCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValueBytes]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValueBytes]"
+                      name="HashValueBytes">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input].Columns[HashValueBytes]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\SAPSite$temp"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SAPSite$temp"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SAPSite$temp]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteCode]"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[SAPSiteCode]"
+                      name="SAPSiteCode"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteDescription]"
+                      length="200"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]"
+                      name="SAPSiteDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].ExternalColumns[CompanyCode]"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].Columns[CompanyCode]"
+                      name="CompanyCode"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SAPSiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SAPSiteDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output].ExternalColumns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CompanyCode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[SAPSiteCode]"
+                      name="SAPSiteCode" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[SAPSiteDescription]"
+                      name="SAPSiteDescription" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[CompanyCode]"
+                      name="CompanyCode" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\SAPSite281"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SAPSite281"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SAPSite]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load SAPSite$changes\SAPSite281.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteCode]"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[SAPSiteCode]"
+                      name="SAPSiteCode"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteDescription]"
+                      length="200"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]"
+                      name="SAPSiteDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].ExternalColumns[CompanyCode]"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].Columns[CompanyCode]"
+                      name="CompanyCode"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SAPSiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SAPSiteDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output].ExternalColumns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CompanyCode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[SAPSiteCode]"
+                      name="SAPSiteCode" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[SAPSiteDescription]"
+                      name="SAPSiteDescription" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[CompanyCode]"
+                      name="CompanyCode" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$changes\UPDATE"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="UPDATE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SAPSite$changes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load SAPSite$changes\UPDATE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].Columns[SAPSiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="SAPSiteCode"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteCode]"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[SAPSiteCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].Columns[DataOperationID]"
+                      cachedDataType="i4"
+                      cachedName="DataOperationID"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[DataOperationID]"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[DataOperationID]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].Columns[UpdateLineageID]"
+                      cachedDataType="i4"
+                      cachedName="UpdateLineageID"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[UpdateLneageID]"
+                      lineageId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[UpdateLineageID]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].Columns[SAPSiteDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="SAPSiteDescription"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteDescription]"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[SAPSiteDescription]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].Columns[CompanyCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="CompanyCode"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[CompanyCode]"
+                      lineageId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output].Columns[CompanyCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SAPSiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[DataOperationID]"
+                      dataType="ui1"
+                      name="DataOperationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[InsertLineageID]"
+                      dataType="i4"
+                      name="InsertLineageID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[UpdateLneageID]"
+                      dataType="i4"
+                      name="UpdateLneageID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SAPSiteDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CompanyCode" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$changes\UPDATE.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\UPDATE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$changes\UPDATE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$changes\UPDATE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Data Conversion Output]"
+              endId="Package\DFT Load SAPSite$changes\CNT AuditCountExistingRows.Inputs[Row Count Input 1]"
+              name="Data Conversion Output"
+              startId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Data Conversion Output1]"
+              endId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Right Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Derived Column Output]"
+              endId="Package\DFT Load SAPSite$changes\CNT AuditCountUpdateRecords.Inputs[Row Count Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Derived Column Output1]"
+              endId="Package\DFT Load SAPSite$changes\CNT AuditCountInsertRecords.Inputs[Row Count Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[HashedOutput]"
+              endId="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input]"
+              name="HashedOutput"
+              startId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[HashedOutput1]"
+              endId="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT.Inputs[Data Conversion Input]"
+              name="HashedOutput"
+              startId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Merge Join Output]"
+              endId="Package\DFT Load SAPSite$changes\Conditional Split.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\DFT Load SAPSite$changes\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[new record]"
+              endId="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT.Inputs[Derived Column Input]"
+              name="new record"
+              startId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[new record]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load SAPSite$changes\SAPSite$temp.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[OLE DB Source Output1]"
+              endId="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load SAPSite$changes\SAPSite281.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Row Count Output 1]"
+              endId="Package\DFT Load SAPSite$changes\Merge Join.Inputs[Merge Join Left Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load SAPSite$changes\CNT AuditCountExistingRows.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Row Count Output 11]"
+              endId="Package\DFT Load SAPSite$changes\UPDATE.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load SAPSite$changes\CNT AuditCountUpdateRecords.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Row Count Output 12]"
+              endId="Package\DFT Load SAPSite$changes\INSERT.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load SAPSite$changes\CNT AuditCountInsertRecords.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Load SAPSite$changes.Paths[Update]"
+              endId="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE.Inputs[Derived Column Input]"
+              name="Update"
+              startId="Package\DFT Load SAPSite$changes\Conditional Split.Outputs[Update]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load SAPSite$temp"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{87DDBE81-9001-4E4F-B6F2-F3157D5606D2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load SAPSite$temp"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load SAPSite$temp\CNTAuditExtractRowCount"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNTAuditExtractRowCount">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditExtractRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$temp\CNTAuditExtractRowCount.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$temp\CNTAuditExtractRowCount.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load SAPSite$temp\CNTAuditExtractRowCount.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$temp\CNTAuditInsertRowCount"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNTAuditInsertRowCount">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditInsertRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$temp\CNTAuditInsertRowCount.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$temp\CNTAuditInsertRowCount.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load SAPSite$temp\CNTAuditInsertRowCount.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$temp\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$temp\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$temp\Data Conversion.Inputs[Data Conversion Input].Columns[SAPSiteCode]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="SAPSiteCode"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[SAPSiteCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$temp\Data Conversion.Inputs[Data Conversion Input].Columns[SAPSiteDescription]"
+                      cachedDataType="wstr"
+                      cachedLength="30"
+                      cachedName="SAPSiteDescription"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$temp\Data Conversion.Inputs[Data Conversion Input].Columns[CompanyCode]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="CompanyCode"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[CompanyCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Load SAPSite$temp\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SAPSiteCode]"
+                      name="Copy of SAPSiteCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[SAPSiteCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SAPSiteDescription]"
+                      name="Copy of SAPSiteDescription"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CompanyCode]"
+                      name="Copy of CompanyCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[CompanyCode]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$temp\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$temp\SAPSite$temp"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="SAPSite$temp"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SAPSite$temp]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].Columns[Copy of SAPSiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="4"
+                      cachedName="Copy of SAPSiteCode"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteCode]"
+                      lineageId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SAPSiteCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].Columns[Copy of SAPSiteDescription]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of SAPSiteDescription"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteDescription]"
+                      lineageId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of SAPSiteDescription]" />
+                    <inputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].Columns[Copy of CompanyCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of CompanyCode"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].ExternalColumns[CompanyCode]"
+                      lineageId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of CompanyCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="SAPSiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].ExternalColumns[SAPSiteDescription]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SAPSiteDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input].ExternalColumns[CompanyCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="CompanyCode" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite$temp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite$temp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite$temp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load SAPSite$temp\SAPSite023"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="SAPSite023"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from MDIS_STAGING.[out_pomgmt].[SAPSite]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load SAPSite$temp\SAPSite023.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[chsql023p]"
+                  connectionManagerRefId="Package.ConnectionManagers[chsql023p]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[SAPSiteCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteCode]"
+                      length="4"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[SAPSiteCode]"
+                      name="SAPSiteCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteDescription]"
+                      length="30"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[SAPSiteDescription]"
+                      name="SAPSiteDescription"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[CompanyCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].ExternalColumns[CompanyCode]"
+                      length="10"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].Columns[CompanyCode]"
+                      name="CompanyCode"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteCode]"
+                      dataType="wstr"
+                      length="4"
+                      name="SAPSiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].ExternalColumns[SAPSiteDescription]"
+                      dataType="wstr"
+                      length="30"
+                      name="SAPSiteDescription" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output].ExternalColumns[CompanyCode]"
+                      dataType="wstr"
+                      length="10"
+                      name="CompanyCode" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[SAPSiteCode]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[SAPSiteCode]"
+                      name="SAPSiteCode" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[SAPSiteDescription]"
+                      dataType="wstr"
+                      length="30"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[SAPSiteDescription]"
+                      name="SAPSiteDescription" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[CompanyCode]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[CompanyCode]"
+                      name="CompanyCode" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load SAPSite$temp.Paths[Data Conversion Output]"
+              endId="Package\DFT Load SAPSite$temp\CNTAuditInsertRowCount.Inputs[Row Count Input 1]"
+              name="Data Conversion Output"
+              startId="Package\DFT Load SAPSite$temp\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$temp.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load SAPSite$temp\CNTAuditExtractRowCount.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load SAPSite$temp\SAPSite023.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT Load SAPSite$temp.Paths[Row Count Output 1]"
+              endId="Package\DFT Load SAPSite$temp\SAPSite$temp.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load SAPSite$temp\CNTAuditInsertRowCount.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Load SAPSite$temp.Paths[Row Count Output 11]"
+              endId="Package\DFT Load SAPSite$temp\Data Conversion.Inputs[Data Conversion Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load SAPSite$temp\CNTAuditExtractRowCount.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL lla_EndAudit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{11ec675b-773e-4d70-b366-1b254206d7ef}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL lla_EndAudit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6DBD095E-754B-479A-A7F4-7D45DD41B6FB}"
+          SQLTask:SqlStatementSource="EXEC lla.EndAudit&#xA;  ? --@AuditId,&#xA; ,? --@ExtractRowCount,&#xA; ,? --@InsertRowCount,&#xA; ,? --@UpdateRowCount,&#xA; ,? --@DeleteRowCount,&#xA; ,? --@ErrorRowCount,&#xA; ,? --@TableInitialRowCount,&#xA; ,? --@TableFinalRowCount,&#xA; ,? --@AuditDetails" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::AuditId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::AuditExtractRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::AuditInsertRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::AuditUpdateRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::AuditDeleteRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::AuditErrorRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::AuditTableInitialRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::AuditTableFinalRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="8"
+            SQLTask:DtsVariableName="User::AuditDetails"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL lla_StartAudit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{503eea4c-9dc5-413d-946b-95e279313d7d}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL lla_StartAudit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6DBD095E-754B-479A-A7F4-7D45DD41B6FB}"
+          SQLTask:SqlStatementSource="EXEC lla.StartAudit&#xA;  ? --@ParentAuditId&#xA; ,? --@SourceComponent,&#xA; ,? --@TargetComponent,&#xA; ,? --@TableName,&#xA; ,? --@PackageName,&#xA; ,? --@ServerExecutionId,&#xA; ,? OUTPUT --@AuditId OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::ParentAuditId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::SourceSystem"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::TargetSystem"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::AuditTableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="System::ServerExecutionID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::AuditId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL MERGE SAPSite and SAPSite$changes"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0AADE2E1-6B57-4B2F-9FCD-090D0F9CD362}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL MERGE SAPSite and SAPSite$changes"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4712B4A8-E52D-418A-9A26-283A13D63180}"
+          SQLTask:SqlStatementSource="MERGE [dbo].[SAPSite] AS T&#xA;using [dbo].[SAPSite$changes] AS S&#xA;ON ( t.SAPSiteCode=s.SAPSiteCode&#xA;AND t.SAPSiteDescription=t.SAPSiteDescription&#xA;AND t.CompanyCode=s.CompanyCode)&#xA;&#xA;WHEN matched AND S.dataoperationid = 4 THEN &#xA;Update set t.SAPSiteCode=s.SAPSiteCode,&#xA;t.SAPSiteDescription=s.SAPSiteDescription,&#xA;t.CompanyCode=s.CompanyCode&#xA;&#xA;&#xA;&#xA;&#xA;WHEN NOT matched AND S.dataoperationid = 2 THEN&#xA;Insert(SAPSiteCode,SAPSiteDescription,CompanyCode) values(s.SAPSiteCode,s.SAPSiteDescription,s.CompanyCode);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate SAPS$changes"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{35ADB7DD-C314-4CEF-9000-EEA4846A2168}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate SAPS$changes"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4712B4A8-E52D-418A-9A26-283A13D63180}"
+          SQLTask:SqlStatementSource="Truncate table dbo.SAPSite$changes" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate SAPSite$temp"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BE829DE4-442D-44CF-BBCC-52DA54DDD248}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate SAPSite$temp"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4712B4A8-E52D-418A-9A26-283A13D63180}"
+          SQLTask:SqlStatementSource="Truncate table [dbo].[SAPSite$temp]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{2237CC01-EE9E-4487-8833-403E31EED598}"
+      DTS:From="Package\TSQL Truncate SAPSite$temp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Load SAPSite$temp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{5DE30951-C671-4612-A9DA-F1B6A7D2D1D7}"
+      DTS:From="Package\DFT Load SAPSite$temp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TSQL Truncate SAPS$changes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{7A54F46D-FA9D-4C90-99BF-E09DC5768B4C}"
+      DTS:From="Package\TSQL Truncate SAPS$changes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT Load SAPSite$changes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{9B887097-FA11-45B7-A8CA-63495DF12535}"
+      DTS:From="Package\DFT Load SAPSite$changes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\TSQL MERGE SAPSite and SAPSite$changes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{BAEBFA61-57F6-4CC9-8EEB-9ADA2BB0A905}"
+      DTS:From="Package\TSQL lla_StartAudit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\TSQL Truncate SAPSite$temp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{3664B33D-2964-4521-BB49-1268FFACC4BA}"
+      DTS:From="Package\TSQL MERGE SAPSite and SAPSite$changes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQL lla_EndAudit" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFT Load SAPSite$changes"
+          TopLeft="281,528.5" />
+        <NodeLayout
+          Size="193,42"
+          Id="Package\DFT Load SAPSite$temp"
+          TopLeft="288.5,324.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\SQL lla_EndAudit"
+          TopLeft="307.5,732.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\TSQL lla_StartAudit"
+          TopLeft="299,95" />
+        <NodeLayout
+          Size="285,42"
+          Id="Package\TSQL MERGE SAPSite and SAPSite$changes"
+          TopLeft="242.5,630.5" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\TSQL Truncate SAPS$changes"
+          TopLeft="274.5,426.5" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\TSQL Truncate SAPSite$temp"
+          TopLeft="276,222.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="385,264.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="385,366.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="385,468.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="385,570.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="384.5,137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,85.5"
+              Start="0,0"
+              End="0,78">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,78" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="386,672.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Load SAPSite$changes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="118,42"
+          Id="Package\DFT Load SAPSite$changes\UPDATE"
+          TopLeft="121,844" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\DFT Load SAPSite$changes\SAPSite281"
+          TopLeft="480,60" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\DFT Load SAPSite$changes\SAPSite$temp"
+          TopLeft="97,71" />
+        <NodeLayout
+          Size="236,42"
+          Id="Package\DFT Load SAPSite$changes\DCN  ConvertHashValueToBigINT"
+          TopLeft="462,284" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\DFT Load SAPSite$changes\DER LLA Columns for UPDATE"
+          TopLeft="75,649" />
+        <NodeLayout
+          Size="115,42"
+          Id="Package\DFT Load SAPSite$changes\INSERT"
+          TopLeft="548,832" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\DFT Load SAPSite$changes\Conditional Split"
+          TopLeft="370,547" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT Load SAPSite$changes\DER LLA Columns for INSERT"
+          TopLeft="469,651" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT Load SAPSite$changes\HSH CalculateHashValueBytes"
+          TopLeft="75,179" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DFT Load SAPSite$changes\Merge Join"
+          TopLeft="366,453" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT Load SAPSite$changes\HSH  CalculateHashValueBytes"
+          TopLeft="415,192" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\DFT Load SAPSite$changes\CNT AuditCountUpdateRecords"
+          TopLeft="75,753" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\DFT Load SAPSite$changes\CNT AuditCountInsertRecords"
+          TopLeft="473,761" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\DFT Load SAPSite$changes\DCN ConvertHashValueToBigINT"
+          TopLeft="101,267" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\DFT Load SAPSite$changes\CNT AuditCountExistingRows"
+          TopLeft="93,375" />
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Update]"
+          TopLeft="447.5,589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-262,60"
+              Start="0,0"
+              End="-262,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-258,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-258,30"
+                    Point2="-262,30"
+                    Point3="-262,34" />
+                  <mssgle:LineSegment
+                    End="-262,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-147.28029296875,35,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Row Count Output 12]"
+          TopLeft="582.5,803">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="23,29"
+              Start="0,0"
+              End="23,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,10.5"
+                    Point2="0,14.5"
+                    Point3="4,14.5" />
+                  <mssgle:LineSegment
+                    End="19,14.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19,14.5"
+                    Point2="23,14.5"
+                    Point3="23,18.5" />
+                  <mssgle:LineSegment
+                    End="23,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Row Count Output 11]"
+          TopLeft="183.75,795">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Row Count Output 1]"
+          TopLeft="200.5,417">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="210.166666666667,36"
+              Start="0,0"
+              End="210.166666666667,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.3373860182371" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.3373860182371"
+                    Point2="0,21.3373860182371"
+                    Point3="4,21.3373860182371" />
+                  <mssgle:LineSegment
+                    End="206.166666666667,21.3373860182371" />
+                  <mssgle:CubicBezierSegment
+                    Point1="206.166666666667,21.3373860182371"
+                    Point2="210.166666666667,21.3373860182371"
+                    Point3="210.166666666667,25.3373860182371" />
+                  <mssgle:LineSegment
+                    End="210.166666666667,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[OLE DB Source Output1]"
+          TopLeft="546,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19,90"
+              Start="0,0"
+              End="-19,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41"
+                    Point2="0,45"
+                    Point3="-4,45" />
+                  <mssgle:LineSegment
+                    End="-15,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15,45"
+                    Point2="-19,45"
+                    Point3="-19,49" />
+                  <mssgle:LineSegment
+                    End="-19,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[OLE DB Source Output]"
+          TopLeft="169.5,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15.5,66"
+              Start="0,0"
+              End="15.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="4,33" />
+                  <mssgle:LineSegment
+                    End="11.5,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11.5,33"
+                    Point2="15.5,33"
+                    Point3="15.5,37" />
+                  <mssgle:LineSegment
+                    End="15.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[new record]"
+          TopLeft="472,589">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="106,62"
+              Start="0,0"
+              End="106,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.1800766283525" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.1800766283525"
+                    Point2="0,25.1800766283525"
+                    Point3="4,25.1800766283525" />
+                  <mssgle:LineSegment
+                    End="102,25.1800766283525" />
+                  <mssgle:CubicBezierSegment
+                    Point1="102,25.1800766283525"
+                    Point2="106,25.1800766283525"
+                    Point3="106,29.1800766283525" />
+                  <mssgle:LineSegment
+                    End="106,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="27.955390625,30.1800766283525,50.08921875,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Merge Join Output]"
+          TopLeft="431,495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="16.5,52"
+              Start="0,0"
+              End="16.5,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22"
+                    Point2="0,26"
+                    Point3="4,26" />
+                  <mssgle:LineSegment
+                    End="12.5,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="12.5,26"
+                    Point2="16.5,26"
+                    Point3="16.5,30" />
+                  <mssgle:LineSegment
+                    End="16.5,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[HashedOutput1]"
+          TopLeft="527,234">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="53,50"
+              Start="0,0"
+              End="53,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="49,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="49,25"
+                    Point2="53,25"
+                    Point3="53,29" />
+                  <mssgle:LineSegment
+                    End="53,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[HashedOutput]"
+          TopLeft="185,221">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="32.5,46"
+              Start="0,0"
+              End="32.5,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="4,23" />
+                  <mssgle:LineSegment
+                    End="28.5,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="28.5,23"
+                    Point2="32.5,23"
+                    Point3="32.5,27" />
+                  <mssgle:LineSegment
+                    End="32.5,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Derived Column Output1]"
+          TopLeft="580.25,693">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68"
+              Start="0,0"
+              End="0,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Derived Column Output]"
+          TopLeft="186.5,691">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62"
+              Start="0,0"
+              End="0,54.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Data Conversion Output1]"
+          TopLeft="580,326">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-128.666666666667,127"
+              Start="0,0"
+              End="-128.666666666667,119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.273556231003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,71.273556231003"
+                    Point2="0,75.273556231003"
+                    Point3="-4,75.273556231003" />
+                  <mssgle:LineSegment
+                    End="-124.666666666667,75.273556231003" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-124.666666666667,75.273556231003"
+                    Point2="-128.666666666667,75.273556231003"
+                    Point3="-128.666666666667,79.273556231003" />
+                  <mssgle:LineSegment
+                    End="-128.666666666667,119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$changes.Paths[Data Conversion Output]"
+          TopLeft="217.5,309">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17,66"
+              Start="0,0"
+              End="-17,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29"
+                    Point2="0,33"
+                    Point3="-4,33" />
+                  <mssgle:LineSegment
+                    End="-13,33" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13,33"
+                    Point2="-17,33"
+                    Point3="-17,37" />
+                  <mssgle:LineSegment
+                    End="-17,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load SAPSite$changes\UPDATE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load SAPSite$changes\SAPSite281">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load SAPSite$changes\SAPSite$temp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load SAPSite$changes\INSERT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT Load SAPSite$temp">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT Load SAPSite$temp\Data Conversion"
+          TopLeft="194,330" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\DFT Load SAPSite$temp\CNTAuditInsertRowCount"
+          TopLeft="183,473" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\DFT Load SAPSite$temp\SAPSite023"
+          TopLeft="186,99" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\DFT Load SAPSite$temp\SAPSite$temp"
+          TopLeft="224,638" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\DFT Load SAPSite$temp\CNTAuditExtractRowCount"
+          TopLeft="156,182" />
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$temp.Paths[Row Count Output 11]"
+          TopLeft="258,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,106"
+              Start="0,0"
+              End="14,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49"
+                    Point2="0,53"
+                    Point3="4,53" />
+                  <mssgle:LineSegment
+                    End="10,53" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,53"
+                    Point2="14,53"
+                    Point3="14,57" />
+                  <mssgle:LineSegment
+                    End="14,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$temp.Paths[Row Count Output 1]"
+          TopLeft="282.5,515">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="14,123"
+              Start="0,0"
+              End="14,115.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.5"
+                    Point2="0,61.5"
+                    Point3="4,61.5" />
+                  <mssgle:LineSegment
+                    End="10,61.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="10,61.5"
+                    Point2="14,61.5"
+                    Point3="14,65.5" />
+                  <mssgle:LineSegment
+                    End="14,115.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$temp.Paths[OLE DB Source Output]"
+          TopLeft="255,141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load SAPSite$temp.Paths[Data Conversion Output]"
+          TopLeft="272,372">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,101"
+              Start="0,0"
+              End="10.5,93.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.5"
+                    Point2="0,50.5"
+                    Point3="4,50.5" />
+                  <mssgle:LineSegment
+                    End="6.5,50.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,50.5"
+                    Point2="10.5,50.5"
+                    Point3="10.5,54.5" />
+                  <mssgle:LineSegment
+                    End="10.5,93.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load SAPSite$temp\SAPSite$temp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load SAPSite$temp\SAPSite023">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

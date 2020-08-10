@@ -1,0 +1,3452 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/21/2020 8:04:44 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="CHSRV255"
+  DTS:CreatorName="DUFRY\t-vlamun"
+  DTS:DTSID="{7C32E3D1-3402-4E12-ABA3-FADBE07C4494}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.121"
+  DTS:LocaleID="2055"
+  DTS:ObjectName="Category"
+  DTS:PackageType="5"
+  DTS:VersionBuild="205"
+  DTS:VersionGUID="{F682D9DD-3E89-4EAB-9CB1-AFDA51C87E9A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[chsql023p]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{B203C84E-EDA8-4A03-A2D9-532809768D3D}"
+      DTS:ObjectName="chsql023p">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=chsql023p;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BC7B5F60-8D47-46F4-8A4C-2EE7DDB433E8}"
+      DTS:ObjectName="CHSQL281.d_dipdb">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=CHSQL281;Initial Catalog=d_dipdb;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="3"
+      DTS:DTSID="{6EBEFDB9-2E9B-45B8-B53D-7881A1E38BBD}"
+      DTS:ObjectName="ParentAuditId">
+      <DTS:Property
+        DTS:DataType="3"
+        DTS:Name="ParameterValue">-1</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2CB9F90C-58A4-4254-A56C-D8C1016DF2D0}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditDeleteRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{71769B24-92D8-45B4-BE4E-9CFD607501BE}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditDetails">
+      <DTS:VariableValue
+        DTS:DataType="8">Category</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{05C0C0CF-6BB0-4E98-9771-09B3891DB86A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditDetailsLoop">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{16F6FF97-0E98-4BC1-B893-AA4ED374BBE1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditErrorRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2F61D19F-5864-45C7-8089-AA40DBFA47D6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditExtractRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B6A4C20B-73EB-4F88-8087-B6BA6B8B7172}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditId">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{07CF6A5A-ABD2-4DA2-8E4D-5D2A9CE98F3E}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditIdLoop">
+      <DTS:VariableValue
+        DTS:DataType="3">-1</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D95492B-5B90-4432-ABC8-749F6D8311A6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditInsertRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{D87BD4E4-B530-4EB4-ACF5-30246AFD0944}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditTableFinalRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B3D864A7-BFDB-43CB-BC42-BE7863D04CC4}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditTableInitialRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EA87F56A-545F-43C1-9174-7027AFF14EBA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditTableName">
+      <DTS:VariableValue
+        DTS:DataType="8">Category</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{876261BF-9247-494C-A0D4-B45F7B7FF7C1}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="AuditUpdateRowCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{10AAAA8A-47CE-4993-B007-A1AB7302E0CC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LineageDataOperationIdInsert">
+      <DTS:VariableValue
+        DTS:DataType="3">2</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8EE6E38D-5FC8-4582-8D41-68C0BDCF1C32}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LineageDataOperationIdUpdateNewValue">
+      <DTS:VariableValue
+        DTS:DataType="3">4</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{287DD36C-309D-4876-8806-15BA2EC9A467}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SourceSystem">
+      <DTS:VariableValue
+        DTS:DataType="8">SAP</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7E30A545-D501-431C-ACE6-D8306022BF6B}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="SystemId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AEAB2D09-CCEC-4E4C-9B43-7DD78F3A101D}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TargetSystem">
+      <DTS:VariableValue
+        DTS:DataType="8">DCIS</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Category$changes"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CFFB96EF-4BAD-4DE0-AC90-CFAFC73B937E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Category$changes"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Category$changes\Category$changes INSERT"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Category$changes INSERT"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[category$changes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Category$changes\Category$changes INSERT.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].Columns[DataOperationID]"
+                      cachedDataType="i4"
+                      cachedName="DataOperationID"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[DataOperationID]"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[DataOperationID]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].Columns[InsertLineageID]"
+                      cachedDataType="i4"
+                      cachedName="InsertLineageID"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[InsertLineageID]"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[InsertLineageID]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[description]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[DataOperationID]"
+                      dataType="ui1"
+                      name="DataOperationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[InsertLineageID]"
+                      dataType="i4"
+                      name="InsertLineageID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[UpdateLneageID]"
+                      dataType="i4"
+                      name="UpdateLneageID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="description" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\Category$changes INSERT.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Category$changes INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Category$changes INSERT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\Category$changes UPDATE"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Category$changes UPDATE"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[category$changes]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Category$changes\Category$changes UPDATE.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].Columns[DataOperationID]"
+                      cachedDataType="i4"
+                      cachedName="DataOperationID"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[DataOperationID]"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[DataOperationID]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].Columns[UpdateLineageID]"
+                      cachedDataType="i4"
+                      cachedName="UpdateLineageID"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[UpdateLneageID]"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[UpdateLineageID]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="description"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[description]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[DataOperationID]"
+                      dataType="ui1"
+                      name="DataOperationID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[InsertLineageID]"
+                      dataType="i4"
+                      name="InsertLineageID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[UpdateLneageID]"
+                      dataType="i4"
+                      name="UpdateLneageID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="description" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\Category$changes UPDATE.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Category$changes UPDATE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$changes UPDATE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Category$changes UPDATE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\Category$temp"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Category$temp"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DUFRY].[Category$tenp]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from dbo.category$temp order by code</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Category$changes\Category$temp.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[code]"
+                      name="code"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i8"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[code]"
+                      name="code" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\Category281"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Category281"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DUFRY].[Category]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from dbo.category order by code</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Category$changes\Category281.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output]"
+                  isSorted="true"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[id]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[code]"
+                      name="code"
+                      sortKeyPosition="1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[description]"
+                      name="description"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].ExternalColumns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[id]"
+                      dataType="i8"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[code]"
+                      name="code" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[description]"
+                      name="description" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\CNT AuditCountExistingRows"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNT AuditCountExistingRows">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditTableInitialRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\CNT AuditCountExistingRows.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\CNT AuditCountExistingRows.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load Category$changes\CNT AuditCountExistingRows.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\CNT AuditCountInsertRecords"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNT AuditCountInsertRecords">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditInsertRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\CNT AuditCountInsertRecords.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\CNT AuditCountInsertRecords.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load Category$changes\CNT AuditCountInsertRecords.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\CNT AuditCountUpdateRecords"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNT AuditCountUpdateRecords">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditUpdateRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\CNT AuditCountUpdateRecords.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\CNT AuditCountUpdateRecords.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load Category$changes\CNT AuditCountUpdateRecords.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\Conditional Split 1"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input].Columns[HashValue]"
+                      cachedDataType="i8"
+                      cachedName="HashValue"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValue]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input].Columns[exist_HashValue]"
+                      cachedDataType="i8"
+                      cachedName="exist_HashValue"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_HashValue]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input].Columns[exist_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="exist_code"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_code]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[new records]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="RedirectRow"
+                  exclusionGroup="1"
+                  name="new records"
+                  synchronousInputId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="RedirectRow">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[ISNULL](#{Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_code]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(exist_code)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[Update]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Update"
+                  synchronousInputId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">[REPLACENULL](#{Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValue]},0) != [REPLACENULL](#{Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_HashValue]},0)</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">REPLACENULL(HashValue,0) != REPLACENULL(exist_HashValue,0)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\DC SystemId"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DC SystemId"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\DC SystemId.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DC SystemId.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Output].Columns[SYSTEM_ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Output].Columns[SYSTEM_ID]"
+                      name="SYSTEM_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::SystemId]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::SystemId]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DC SystemId.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCN ConvertHashValueToBigINT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input].Columns[HashValueBytes]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="HashValueBytes"
+                      lineageId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]"
+                      name="HashValue"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="DCN ConvertHashValueToBigINT 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Inputs[Data Conversion Input].Columns[HashValueBytes]"
+                      cachedDataType="bytes"
+                      cachedLength="8"
+                      cachedName="HashValueBytes"
+                      lineageId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Output].Columns[HashValue]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Output].Columns[HashValue]"
+                      name="HashValue"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\DER LLA Columns for INSERT"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER LLA Columns for INSERT"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[DataOperationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[DataOperationID]"
+                      name="DataOperationID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::LineageDataOperationIdInsert]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::LineageDataOperationIdInsert]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[InsertLineageID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output].Columns[InsertLineageID]"
+                      name="InsertLineageID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::AuditIdLoop]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::AuditIdLoop]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DER LLA Columns for UPDATE"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[DataOperationID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[DataOperationID]"
+                      name="DataOperationID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::LineageDataOperationIdUpdateNewValue]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::LineageDataOperationIdUpdateNewValue]</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[UpdateLineageID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output].Columns[UpdateLineageID]"
+                      name="UpdateLineageID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">@[User::AuditIdLoop]</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">@[User::AuditIdLoop]</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="https://github.com/keif888/SSISMHash/"
+              description="Creates Multiple Hash's from selected input columns."
+              name="HSH  CalculateHashValueBytes"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Select the number of threads to use"
+                  name="MultipleThreads"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+MultipleThread">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Select True to force Nulls and Empty Strings to be detected in Hash, False for earlier version compatability."
+                  name="SafeNullHandling"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+SafeNullHandling">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Select True to enable hashing of Milliseconds, False for earlier version compatability."
+                  name="IncludeMillsecond"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+MillisecondHandling">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">MultipleHash</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Inputs[Input]"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Inputs[Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="description"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Inputs[Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Inputs[Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput]"
+                  description="Hashed rows are directed to this output."
+                  name="HashedOutput"
+                  synchronousInputId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]"
+                      name="HashValueBytes">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Select the Hash Type that will be used for this output column."
+                          name="HashType"
+                          typeConverter="Martin.SQLServer.Dts.MultipleHash+HashTypeEnumerator, MultipleHash2016, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">10</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Enter the Lineage ID's that will be used to calculate the hash for this output column."
+                          name="InputColumnLineageIDs">#{Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[code]},#{Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[description]},#{Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Stores the type of the output column"
+                          name="HashOutputType"
+                          typeConverter="Martin.SQLServer.Dts.MultipleHash+OutputTypeEnumerator, MultipleHash2016, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="https://github.com/keif888/SSISMHash/"
+              description="Creates Multiple Hash's from selected input columns."
+              name="HSH CalculateHashValueBytes"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Select the number of threads to use"
+                  name="MultipleThreads"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+MultipleThread">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Select True to force Nulls and Empty Strings to be detected in Hash, False for earlier version compatability."
+                  name="SafeNullHandling"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+SafeNullHandling">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Select True to enable hashing of Milliseconds, False for earlier version compatability."
+                  name="IncludeMillsecond"
+                  typeConverter="Martin.SQLServer.Dts.MultipleHash+MillisecondHandling">1</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">MultipleHash</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Inputs[Input]"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Inputs[Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="description"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Inputs[Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Inputs[Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[id]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput]"
+                  description="Hashed rows are directed to this output."
+                  name="HashedOutput"
+                  synchronousInputId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]"
+                      dataType="bytes"
+                      length="8"
+                      lineageId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput].Columns[HashValueBytes]"
+                      name="HashValueBytes">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Select the Hash Type that will be used for this output column."
+                          name="HashType"
+                          typeConverter="Martin.SQLServer.Dts.MultipleHash+HashTypeEnumerator, MultipleHash2016, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">10</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Enter the Lineage ID's that will be used to calculate the hash for this output column."
+                          name="InputColumnLineageIDs">#{Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[code]},#{Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[description]},#{Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[id]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Stores the type of the output column"
+                          name="HashOutputType"
+                          typeConverter="Martin.SQLServer.Dts.MultipleHash+OutputTypeEnumerator, MultipleHash2016, Version=1.0.0.0, Culture=neutral, PublicKeyToken=51c551904274ab44">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$changes\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input].Columns[id]"
+                      cachedDataType="i8"
+                      cachedName="id"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[id]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input].Columns[description]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="description"
+                      lineageId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output].Columns[description]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input].Columns[HashValue]"
+                      cachedDataType="i8"
+                      cachedName="HashValue"
+                      lineageId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output].Columns[HashValue]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Right Input].Columns[code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="code"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output].Columns[code]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Right Input].Columns[HashValue]"
+                      cachedDataType="i8"
+                      cachedName="HashValue"
+                      lineageId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Output].Columns[HashValue]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[id]"
+                      dataType="i8"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[id]"
+                      name="id">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input].Columns[id]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[code]"
+                      name="code"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input].Columns[code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[description]"
+                      name="description">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input].Columns[description]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValue]"
+                      dataType="i8"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[HashValue]"
+                      name="HashValue">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input].Columns[HashValue]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_code]"
+                      name="exist_code">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Right Input].Columns[code]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_HashValue]"
+                      dataType="i8"
+                      lineageId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output].Columns[exist_HashValue]"
+                      name="exist_HashValue">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Right Input].Columns[HashValue]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Data Conversion Output]"
+              endId="Package\DFT Load Category$changes\CNT AuditCountExistingRows.Inputs[Row Count Input 1]"
+              name="Data Conversion Output"
+              startId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Data Conversion Output1]"
+              endId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Right Input]"
+              name="Data Conversion Output"
+              startId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Derived Column Output]"
+              endId="Package\DFT Load Category$changes\CNT AuditCountUpdateRecords.Inputs[Row Count Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Derived Column Output1]"
+              endId="Package\DFT Load Category$changes\CNT AuditCountInsertRecords.Inputs[Row Count Input 1]"
+              name="Derived Column Output"
+              startId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Derived Column Output2]"
+              endId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1.Inputs[Data Conversion Input]"
+              name="Derived Column Output"
+              startId="Package\DFT Load Category$changes\DC SystemId.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[HashedOutput]"
+              endId="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT.Inputs[Data Conversion Input]"
+              name="HashedOutput"
+              startId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Outputs[HashedOutput]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[HashedOutput1]"
+              endId="Package\DFT Load Category$changes\DC SystemId.Inputs[Derived Column Input]"
+              name="HashedOutput"
+              startId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Outputs[HashedOutput]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Merge Join Output]"
+              endId="Package\DFT Load Category$changes\Conditional Split 1.Inputs[Conditional Split Input]"
+              name="Merge Join Output"
+              startId="Package\DFT Load Category$changes\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[new records]"
+              endId="Package\DFT Load Category$changes\DER LLA Columns for INSERT.Inputs[Derived Column Input]"
+              name="new records"
+              startId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[new records]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load Category$changes\HSH CalculateHashValueBytes.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Category$changes\Category$temp.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[OLE DB Source Output1]"
+              endId="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Category$changes\Category281.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Row Count Output 1]"
+              endId="Package\DFT Load Category$changes\Category$changes UPDATE.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load Category$changes\CNT AuditCountUpdateRecords.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Row Count Output 11]"
+              endId="Package\DFT Load Category$changes\Category$changes INSERT.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load Category$changes\CNT AuditCountInsertRecords.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Row Count Output 12]"
+              endId="Package\DFT Load Category$changes\Merge Join.Inputs[Merge Join Left Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load Category$changes\CNT AuditCountExistingRows.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Load Category$changes.Paths[Update]"
+              endId="Package\DFT Load Category$changes\DER LLA Columns for UPDATE.Inputs[Derived Column Input]"
+              name="Update"
+              startId="Package\DFT Load Category$changes\Conditional Split 1.Outputs[Update]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DFT Load Category$temp"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{73E3F97B-7886-4DE2-BBCC-654655246657}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DFT Load Category$temp"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DFT Load Category$temp\Category$temp"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Category$temp"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[category$temp]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Category$temp\Category$temp.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  connectionManagerRefId="Package.ConnectionManagers[CHSQL281.d_dipdb]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input].Columns[GlobalCategoryCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="GlobalCategoryCode"
+                      externalMetadataColumnId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      lineageId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].Columns[GlobalCategoryCode]" />
+                    <inputColumn
+                      refId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input].Columns[GlobalCategoryDesc]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="GlobalCategoryDesc"
+                      externalMetadataColumnId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      lineageId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].Columns[GlobalCategoryDesc]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                      dataType="i8"
+                      name="id" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="code" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input].ExternalColumns[description]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="description" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$temp\Category$temp.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$temp\Category$temp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$temp\Category$temp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$temp\Category$temp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$temp\Category$temp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$temp\Category023"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="Category023"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from DCIS_DW.[out_pomgmt].[Category]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT Load Category$temp\Category023.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[chsql023p]"
+                  connectionManagerRefId="Package.ConnectionManagers[chsql023p]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].Columns[GlobalCategoryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].ExternalColumns[GlobalCategoryCode]"
+                      length="10"
+                      lineageId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].Columns[GlobalCategoryCode]"
+                      name="GlobalCategoryCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].Columns[GlobalCategoryDesc]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].ExternalColumns[GlobalCategoryDesc]"
+                      length="100"
+                      lineageId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].Columns[GlobalCategoryDesc]"
+                      name="GlobalCategoryDesc"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].ExternalColumns[GlobalCategoryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="GlobalCategoryCode" />
+                    <externalMetadataColumn
+                      refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output].ExternalColumns[GlobalCategoryDesc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="GlobalCategoryDesc" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output].Columns[GlobalCategoryCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output].Columns[GlobalCategoryCode]"
+                      name="GlobalCategoryCode" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output].Columns[GlobalCategoryDesc]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output].Columns[GlobalCategoryDesc]"
+                      name="GlobalCategoryDesc" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$temp\CNTAuditExtractRowCount"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNTAuditExtractRowCount">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditExtractRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$temp\CNTAuditExtractRowCount.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$temp\CNTAuditExtractRowCount.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load Category$temp\CNTAuditExtractRowCount.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT Load Category$temp\CNTAuditInsertRowCount"
+              componentClassID="Microsoft.RowCount"
+              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
+              name="CNTAuditInsertRowCount">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable to hold the row count."
+                  name="VariableName">User::AuditInsertRowCount</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\DFT Load Category$temp\CNTAuditInsertRowCount.Inputs[Row Count Input 1]"
+                  hasSideEffects="true"
+                  name="Row Count Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT Load Category$temp\CNTAuditInsertRowCount.Outputs[Row Count Output 1]"
+                  name="Row Count Output 1"
+                  synchronousInputId="Package\DFT Load Category$temp\CNTAuditInsertRowCount.Inputs[Row Count Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DFT Load Category$temp.Paths[OLE DB Source Output]"
+              endId="Package\DFT Load Category$temp\CNTAuditExtractRowCount.Inputs[Row Count Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\DFT Load Category$temp\Category023.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DFT Load Category$temp.Paths[Row Count Output 1]"
+              endId="Package\DFT Load Category$temp\Category$temp.Inputs[OLE DB Destination Input]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load Category$temp\CNTAuditInsertRowCount.Outputs[Row Count Output 1]" />
+            <path
+              refId="Package\DFT Load Category$temp.Paths[Row Count Output 11]"
+              endId="Package\DFT Load Category$temp\CNTAuditInsertRowCount.Inputs[Row Count Input 1]"
+              name="Row Count Output 1"
+              startId="Package\DFT Load Category$temp\CNTAuditExtractRowCount.Outputs[Row Count Output 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL lla_EndAudit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{33a49651-0e3c-41a2-b978-304d2c434bd0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL lla_EndAudit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6DBD095E-754B-479A-A7F4-7D45DD41B6FB}"
+          SQLTask:SqlStatementSource="EXEC lla.EndAudit&#xA;  ? --@AuditId,&#xA; ,? --@ExtractRowCount,&#xA; ,? --@InsertRowCount,&#xA; ,? --@UpdateRowCount,&#xA; ,? --@DeleteRowCount,&#xA; ,? --@ErrorRowCount,&#xA; ,? --@TableInitialRowCount,&#xA; ,? --@TableFinalRowCount,&#xA; ,? --@AuditDetails" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="User::AuditId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::AuditExtractRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::AuditInsertRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::AuditUpdateRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="User::AuditDeleteRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="User::AuditErrorRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::AuditTableInitialRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="7"
+            SQLTask:DtsVariableName="User::AuditTableFinalRowCount"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="8"
+            SQLTask:DtsVariableName="User::AuditDetails"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL lla_StartAudit"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{524d464d-5699-4035-a244-d888dd6d26d7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL lla_StartAudit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6DBD095E-754B-479A-A7F4-7D45DD41B6FB}"
+          SQLTask:SqlStatementSource="EXEC lla.StartAudit&#xA;  ? --@ParentAuditId&#xA; ,? --@SourceComponent,&#xA; ,? --@TargetComponent,&#xA; ,? --@TableName,&#xA; ,? --@PackageName,&#xA; ,? --@ServerExecutionId,&#xA; ,? OUTPUT --@AuditId OUTPUT" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Package::ParentAuditId"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="User::SourceSystem"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="2"
+            SQLTask:DtsVariableName="User::TargetSystem"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="3"
+            SQLTask:DtsVariableName="User::AuditTableName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="4"
+            SQLTask:DtsVariableName="System::PackageName"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="130"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="5"
+            SQLTask:DtsVariableName="System::ServerExecutionID"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="6"
+            SQLTask:DtsVariableName="User::AuditId"
+            SQLTask:ParameterDirection="Output"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL MERGE Category and Category$changes"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0DA39754-B63D-4702-A90B-0D78C239A1BB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL MERGE Category and Category$changes"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC7B5F60-8D47-46F4-8A4C-2EE7DDB433E8}"
+          SQLTask:SqlStatementSource="MERGE [dbo].[category] AS T&#xA;using [dbo].[category$changes] AS S&#xA;&#xA;ON( t.code=s.code&#xA;AND t.description=s.description)&#xA;&#xA;WHEN matched AND s.dataoperationid=4THEN &#xA;Update set t.code=s.code&#xA;, t.description=s.description&#xA;&#xA;&#xA;&#xA;WHEN NOT matched AND s.dataoperationid=2 THEN&#xA;Insert(code,description) values(s.code,s.description);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate Category$changes"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1A4EEA06-B62A-4AEC-AD40-C00BA2F38A5B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate Category$changes"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC7B5F60-8D47-46F4-8A4C-2EE7DDB433E8}"
+          SQLTask:SqlStatementSource="Truncate table dbo.category$changes" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\TSQL Truncate Category$temp"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BC362066-4C86-4FC8-BDBE-D27C0C31F876}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TSQL Truncate Category$temp"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{BC7B5F60-8D47-46F4-8A4C-2EE7DDB433E8}"
+          SQLTask:SqlStatementSource="Truncate table dbo.category$temp&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{15F06529-2C84-4B03-9B9D-8510C10D25A5}"
+      DTS:From="Package\TSQL Truncate Category$temp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT Load Category$temp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{53948D24-2E05-444D-AE12-119BE9C4A8D0}"
+      DTS:From="Package\DFT Load Category$temp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\TSQL Truncate Category$changes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{BE957270-AE90-47AD-B973-1F3EE3073E5A}"
+      DTS:From="Package\TSQL Truncate Category$changes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DFT Load Category$changes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{9ED5B3C9-30FB-428B-B30C-37DF4FAA5C4E}"
+      DTS:From="Package\DFT Load Category$changes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\TSQL MERGE Category and Category$changes" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{1F6CF555-A921-4E2E-857A-3EEBCD7159E3}"
+      DTS:From="Package\TSQL lla_StartAudit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\TSQL Truncate Category$temp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{1725871F-07B9-42DC-ACA1-05BA93C09C34}"
+      DTS:From="Package\TSQL MERGE Category and Category$changes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\SQL lla_EndAudit" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="214,42"
+          Id="Package\DFT Load Category$changes"
+          TopLeft="278,452.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\DFT Load Category$temp"
+          TopLeft="285.5,248.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\SQL lla_EndAudit"
+          TopLeft="298.5,643.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\TSQL lla_StartAudit"
+          TopLeft="300,49" />
+        <NodeLayout
+          Size="297,42"
+          Id="Package\TSQL MERGE Category and Category$changes"
+          TopLeft="236.5,554.5" />
+        <NodeLayout
+          Size="239,42"
+          Id="Package\TSQL Truncate Category$changes"
+          TopLeft="265.5,350.5" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\TSQL Truncate Category$temp"
+          TopLeft="273,146.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="385,188.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="385,290.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="385,392.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="385,494.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="385,91">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,55.5"
+              Start="0,0"
+              End="0,48">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="381.5,596.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DFT Load Category$changes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="242,42"
+          Id="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT 1"
+          TopLeft="379,305" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DFT Load Category$changes\Conditional Split 1"
+          TopLeft="280,548" />
+        <NodeLayout
+          Size="224,42"
+          Id="Package\DFT Load Category$changes\HSH  CalculateHashValueBytes"
+          TopLeft="395,152" />
+        <NodeLayout
+          Size="225,42"
+          Id="Package\DFT Load Category$changes\CNT AuditCountUpdateRecords"
+          TopLeft="60,758" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\DFT Load Category$changes\Category$changes UPDATE"
+          TopLeft="79,833" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\DFT Load Category$changes\CNT AuditCountInsertRecords"
+          TopLeft="356,776" />
+        <NodeLayout
+          Size="233,42"
+          Id="Package\DFT Load Category$changes\DCN ConvertHashValueToBigINT"
+          TopLeft="60,233" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\DFT Load Category$changes\CNT AuditCountExistingRows"
+          TopLeft="72,344" />
+        <NodeLayout
+          Size="221,42"
+          Id="Package\DFT Load Category$changes\DER LLA Columns for UPDATE"
+          TopLeft="126,656" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DFT Load Category$changes\Category$temp"
+          TopLeft="83,62" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\DFT Load Category$changes\DC SystemId"
+          TopLeft="442,217" />
+        <NodeLayout
+          Size="218,42"
+          Id="Package\DFT Load Category$changes\DER LLA Columns for INSERT"
+          TopLeft="366,663" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT Load Category$changes\HSH CalculateHashValueBytes"
+          TopLeft="77,146" />
+        <NodeLayout
+          Size="205,42"
+          Id="Package\DFT Load Category$changes\Category$changes INSERT"
+          TopLeft="375,854" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DFT Load Category$changes\Category281"
+          TopLeft="413,60" />
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Update]"
+          TopLeft="336,590">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-99.5,66"
+              Start="0,0"
+              End="-99.5,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.7826086956522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.7826086956522"
+                    Point2="0,26.7826086956522"
+                    Point3="-4,26.7826086956522" />
+                  <mssgle:LineSegment
+                    End="-95.5,26.7826086956522" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-95.5,26.7826086956522"
+                    Point2="-99.5,26.7826086956522"
+                    Point3="-99.5,30.7826086956522" />
+                  <mssgle:LineSegment
+                    End="-99.5,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.03029296875,31.7826086956522,32.5605859375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Row Count Output 11]"
+          TopLeft="465.5,818">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12,36"
+              Start="0,0"
+              End="12,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14"
+                    Point2="0,18"
+                    Point3="4,18" />
+                  <mssgle:LineSegment
+                    End="8,18" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8,18"
+                    Point2="12,18"
+                    Point3="12,22" />
+                  <mssgle:LineSegment
+                    End="12,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Row Count Output 1]"
+          TopLeft="172.5,800">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,33"
+              Start="0,0"
+              End="10.5,25.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.5"
+                    Point2="0,16.5"
+                    Point3="4,16.5" />
+                  <mssgle:LineSegment
+                    End="6.5,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,16.5"
+                    Point2="10.5,16.5"
+                    Point3="10.5,20.5" />
+                  <mssgle:LineSegment
+                    End="10.5,25.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[OLE DB Source Output1]"
+          TopLeft="482.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.5,50"
+              Start="0,0"
+              End="24.5,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21"
+                    Point2="0,25"
+                    Point3="4,25" />
+                  <mssgle:LineSegment
+                    End="20.5,25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5,25"
+                    Point2="24.5,25"
+                    Point3="24.5,29" />
+                  <mssgle:LineSegment
+                    End="24.5,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[OLE DB Source Output]"
+          TopLeft="158.5,104">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="28.5,42"
+              Start="0,0"
+              End="28.5,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17"
+                    Point2="0,21"
+                    Point3="4,21" />
+                  <mssgle:LineSegment
+                    End="24.5,21" />
+                  <mssgle:CubicBezierSegment
+                    Point1="24.5,21"
+                    Point2="28.5,21"
+                    Point3="28.5,25" />
+                  <mssgle:LineSegment
+                    End="28.5,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[new records]"
+          TopLeft="388,590">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="87,73"
+              Start="0,0"
+              End="87,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.6231884057971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.6231884057971"
+                    Point2="0,29.6231884057971"
+                    Point3="4,29.6231884057971" />
+                  <mssgle:LineSegment
+                    End="83,29.6231884057971" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83,29.6231884057971"
+                    Point2="87,29.6231884057971"
+                    Point3="87,33.6231884057971" />
+                  <mssgle:LineSegment
+                    End="87,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="15.98580078125,34.6231884057971,55.0283984375,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[HashedOutput1]"
+          TopLeft="509.5,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23"
+              Start="0,0"
+              End="0,15.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[HashedOutput]"
+          TopLeft="187,188">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10.5,45"
+              Start="0,0"
+              End="-10.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="-4,22.5" />
+                  <mssgle:LineSegment
+                    End="-6.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6.5,22.5"
+                    Point2="-10.5,22.5"
+                    Point3="-10.5,26.5" />
+                  <mssgle:LineSegment
+                    End="-10.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Derived Column Output2]"
+          TopLeft="512,259">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12,46"
+              Start="0,0"
+              End="-12,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-8,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8,23"
+                    Point2="-12,23"
+                    Point3="-12,27" />
+                  <mssgle:LineSegment
+                    End="-12,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Derived Column Output1]"
+          TopLeft="475,705">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.5,71"
+              Start="0,0"
+              End="-9.5,63.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.5"
+                    Point2="0,35.5"
+                    Point3="-4,35.5" />
+                  <mssgle:LineSegment
+                    End="-5.5,35.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.5,35.5"
+                    Point2="-9.5,35.5"
+                    Point3="-9.5,39.5" />
+                  <mssgle:LineSegment
+                    End="-9.5,63.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Derived Column Output]"
+          TopLeft="236.5,698">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-64,60"
+              Start="0,0"
+              End="-64,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26"
+                    Point2="0,30"
+                    Point3="-4,30" />
+                  <mssgle:LineSegment
+                    End="-60,30" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-60,30"
+                    Point2="-64,30"
+                    Point3="-64,34" />
+                  <mssgle:LineSegment
+                    End="-64,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Data Conversion Output]"
+          TopLeft="178,275">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,69"
+              Start="0,0"
+              End="0,61.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="130,42"
+          Id="Package\DFT Load Category$changes\Merge Join"
+          TopLeft="341,453" />
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Row Count Output 12]"
+          TopLeft="179.5,386">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="226.5,67"
+              Start="0,0"
+              End="226.5,59.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,29.5"
+                    Point2="0,33.5"
+                    Point3="4,33.5" />
+                  <mssgle:LineSegment
+                    End="222.5,33.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="222.5,33.5"
+                    Point2="226.5,33.5"
+                    Point3="226.5,37.5" />
+                  <mssgle:LineSegment
+                    End="226.5,59.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Data Conversion Output1]"
+          TopLeft="500,347">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73.6666666666667,106"
+              Start="0,0"
+              End="-73.6666666666667,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.8267477203647" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,58.8267477203647"
+                    Point2="0,62.8267477203647"
+                    Point3="-4,62.8267477203647" />
+                  <mssgle:LineSegment
+                    End="-69.6666666666667,62.8267477203647" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-69.6666666666667,62.8267477203647"
+                    Point2="-73.6666666666667,62.8267477203647"
+                    Point3="-73.6666666666667,66.8267477203647" />
+                  <mssgle:LineSegment
+                    End="-73.6666666666667,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$changes.Paths[Merge Join Output]"
+          TopLeft="406,495">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44,53"
+              Start="0,0"
+              End="-44,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="-4,26.5" />
+                  <mssgle:LineSegment
+                    End="-40,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-40,26.5"
+                    Point2="-44,26.5"
+                    Point3="-44,30.5" />
+                  <mssgle:LineSegment
+                    End="-44,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Category$changes\Category$changes UPDATE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Category$changes\Category$temp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Category$changes\Category$changes INSERT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Category$changes\Category281">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DFT Load Category$temp">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199,42"
+          Id="Package\DFT Load Category$temp\CNTAuditInsertRowCount"
+          TopLeft="183,473" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\DFT Load Category$temp\CNTAuditExtractRowCount"
+          TopLeft="156,182" />
+        <NodeLayout
+          Size="139,42"
+          Id="Package\DFT Load Category$temp\Category023"
+          TopLeft="186,99" />
+        <NodeLayout
+          Size="151,42"
+          Id="Package\DFT Load Category$temp\Category$temp"
+          TopLeft="224,638" />
+        <EdgeLayout
+          Id="Package\DFT Load Category$temp.Paths[Row Count Output 11]"
+          TopLeft="258,224">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24.5,249"
+              Start="0,0"
+              End="24.5,241.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,120.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,120.5"
+                    Point2="0,124.5"
+                    Point3="4,124.5" />
+                  <mssgle:LineSegment
+                    End="20.5,124.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20.5,124.5"
+                    Point2="24.5,124.5"
+                    Point3="24.5,128.5" />
+                  <mssgle:LineSegment
+                    End="24.5,241.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$temp.Paths[Row Count Output 1]"
+          TopLeft="282.5,515">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17,123"
+              Start="0,0"
+              End="17,115.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.5"
+                    Point2="0,61.5"
+                    Point3="4,61.5" />
+                  <mssgle:LineSegment
+                    End="13,61.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13,61.5"
+                    Point2="17,61.5"
+                    Point3="17,65.5" />
+                  <mssgle:LineSegment
+                    End="17,115.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT Load Category$temp.Paths[OLE DB Source Output]"
+          TopLeft="256.75,141">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Category$temp\Category023">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT Load Category$temp\Category$temp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
