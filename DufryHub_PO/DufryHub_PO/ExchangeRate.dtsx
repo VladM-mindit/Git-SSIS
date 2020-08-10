@@ -11,8 +11,8 @@
   DTS:LocaleID="2055"
   DTS:ObjectName="ExchangeRate"
   DTS:PackageType="5"
-  DTS:VersionBuild="211"
-  DTS:VersionGUID="{F6566043-AAD3-47F6-8CF1-6E70B57725FE}">
+  DTS:VersionBuild="212"
+  DTS:VersionGUID="{073708C3-5C1F-45C1-A5F7-94B2233F42D0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2913,7 +2913,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{2BBA2794-5F63-4874-BE24-36D716DBD09B}"
-          SQLTask:SqlStatementSource="Truncate table dbo.exchange_rate$changes" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="Truncate table dbo.exchange_rate$changes;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
