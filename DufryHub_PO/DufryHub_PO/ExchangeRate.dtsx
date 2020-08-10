@@ -11,8 +11,8 @@
   DTS:LocaleID="2055"
   DTS:ObjectName="ExchangeRate"
   DTS:PackageType="5"
-  DTS:VersionBuild="208"
-  DTS:VersionGUID="{AA1D5AF3-F71E-4715-8B75-A7DF544EBF89}">
+  DTS:VersionBuild="209"
+  DTS:VersionGUID="{D1A162DF-6B94-4D6C-9D46-8431EA4A1B78}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -2896,7 +2896,7 @@
         <SQLTask:SqlTaskData
           SQLTask:Connection="{2BBA2794-5F63-4874-BE24-36D716DBD09B}"
           SQLTask:BypassPrepare="False"
-          SQLTask:SqlStatementSource="MERGE [dbo].[exchange_rate] AS T&#xA;using [dbo].[exchange_rate$changes] AS S&#xA;ON( t.date_code= s.date_code&#xA;AND t.day_of_the_week = s.day_of_the_week&#xA;AND t.source_currency_code = s.source_currency_code&#xA;AND t.target_currency_code = s.target_currency_code&#xA;AND t.exchange_rate_value = s.exchange_rate_value)&#xA;&#xA;WHEN matched AND S.dataoperationid = 4 THEN &#xA;Update set t.date_code= s.date_code,&#xA;                  t.day_of_the_week=s.day_of_the_week,&#xA;                  t.source_currency_code=s.source_currency_code,&#xA;                  t.target_currency_code=s.target_currency_code,&#xA;                  t.exchange_rate_value=s.exchange_rate_value&#xA;&#xA;&#xA;&#xA;&#xA;WHEN NOT matched AND S.dataoperationid = 2 THEN&#xA;Insert(date_code,day_of_the_week,source_currency_code,target_currency_code,exchange_rate_value) values(s.date_code,s.day_of_the_week,s.source_currency_code,s.target_currency_code,s.exchange_rate_value);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="MERGE [dbo].[exchange_rate] AS T&#xA;using [dbo].[exchange_rate$changes] AS S&#xA;ON( t.date_code= s.date_code&#xA;AND t.day_of_the_week = s.day_of_the_week&#xA;AND t.source_currency_code = s.source_currency_code&#xA;AND t.target_currency_code = s.target_currency_code&#xA;AND t.exchange_rate_value = s.exchange_rate_value)&#xA;&#xA;WHEN matched AND S.dataoperationid = 4 THEN &#xA;Update set t.date_code= s.date_code,&#xA;                  t.day_of_the_week=s.day_of_the_week,&#xA;                  t.source_currency_code=s.source_currency_code,&#xA;                  t.target_currency_code=s.target_currency_code,&#xA;                  t.exchange_rate_value=s.exchange_rate_value&#xA;&#xA;&#xA;&#xA;&#xA;WHEN NOT matched AND S.dataoperationid = 2 THEN&#xA;Insert(date_code,day_of_the_week,source_currency_code,target_currency_code,exchange_rate_value) values(s.date_code,s.day_of_the_week,s.source_currency_code,s.target_currency_code,s.exchange_rate_value)" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
